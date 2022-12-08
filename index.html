@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박도건 개인포트폴리오</title>
+    <link rel="stylesheet" href="css/reset.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <!-- 슬릭 스크립트 부분 -->
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <!-- aos 부분 -->
+    <link href="aos/aos.css" rel="stylesheet">
+    <script src="aos/aos.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.portani').slick({
+            dots: true,
+			slidesToShow: 1,
+ 			slidesToScroll: 1,
+			speed: 300,
+			autoplay: true,
+  			autoplaySpeed: 2000,
+			centerMode: true,
+			centerPadding: '60px',			
+			slidesToShow: 3,
+			responsive: [				
+				{
+				breakpoint: 769,
+				settings: {
+					slidesToShow: 2,
+					slidesToScroll: 1
+				}
+				},
+				{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1
+				}
+				}
+			// You can unslick at a given breakpoint now by adding:
+			// settings: "unslick"
+			// instead of a settings object
+            ]
+        });        
+    });
+    </script>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/title.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/scroll.css">
+    <link rel="stylesheet" href="css/popup.css">
+    <!-- ㅇㅇ -->
+    <style>
+        .smenuText{
+            color: white;
+            font-weight: bold;
+            background-color: red;
+        }     
+    </style>
+      
+    <script type="text/javascript">
+       $(document).ready(                 
+            function(){ 
+                // aos 시작선언
+                AOS.init();
+                // 대메뉴 창 클릭시 해당 페이지 이동
+                var c1=$("#title").offset().top;
+                var c2=$("#about").offset().top;
+                var c3=$("#work").offset().top;
+                var c4=$("#skill").offset().top;
+                var c5=$("#footerIn").offset().top;
+
+                $(".gnb .c1, .c1p").click(function(){
+				$("html,body").animate({scrollTop:c1},2000);
+                return false;
+			    });
+
+			    $(".gnb .c2, .c2p").click(function(){
+				$("html,body").animate({scrollTop:c2},2000);
+                return false;
+			    });
+
+			    $(".gnb .c3, .c3p").click(function(){
+				$("html,body").animate({scrollTop:c3},2000);
+                return false;
+			    });
+
+                $(".gnb .c4, .c4p").click(function(){
+				$("html,body").animate({scrollTop:c4},2000);
+                return false;
+			    });
+
+                $(".gnb .c5, .c5p").click(function(){
+				$("html,body").animate({scrollTop:c5},2000);
+                return false;
+			    });
+
+                $(".upScroll").click(function(){
+				$("html,body").animate({scrollTop:c1},2000);
+                return false;
+			    });
+                
+                /*
+                // work 창 hover
+                $(".workHover").hover(function(){
+                    $(".workHover .wrap").toggleClass("hoverWrap");
+                    $("#work .wrap hgroup h2").toggleClass("goLeft");
+                    $("#work .wrap hgroup p").toggleClass("goLeft");
+                });
+
+                // about 창 hover                
+                $(".aboutHover").hover(
+                    function(){
+                        $(".aboutHover .wrap").toggleClass("hoverWrap");
+                        $(".leftS").toggleClass("goLeft");
+                        $(".rightS").toggleClass("goRight");
+                    }
+                );
+                */
+
+                //popup창
+                $(".popup").addClass("popdown");
+                $(".close").click(
+                    function(){
+                        $(".popup").removeClass("popdown");
+                    }
+                );
+                
+
+                // h2공지사항안에 a태그로 텍스트를 둘러싸기
+                //$(".popup h2").wrapInner("<a href=''></a>");
+                // 쌍따옴표안에 따옴표가 들어갈때는 홀따옴표로 기재
+                
+                // 그래픽작품을 클릭하면 팝업창으로 뜨게하기
+                $("#skill .wrap figure").click(
+                    function(){
+                        $(".wgraphic").remove();// remove() : 앞요소를 없애라
+                        $("#skill").append("<div class='wgraphic'><div class='center'></div></div>");                    
+                            //append() : 앞요소안의 맨뒤(끝)에 태그를 추가  
+                            //$("body").prepend("<div class='wgraphic'></div>");
+                            //prepend() : 앞요소안의 맨앞에 태그를 추가
+                    // 클릭한 요소를 복제해서 .center안에 넣기
+                        $(this).clone().appendTo(".center");
+                        //clone() 앞요소를 복제, appendTo() 앞요소를 이동
+                        $(".wgraphic").hide().fadeIn(300);
+                        $(".center").append("<a class='close'>닫기</a>");
+                        $("figcaption").children().css("background-color","white")
+                        $("figure").css("background-color","white")
+                        // 닫기버튼누르면 팝업그래픽 없애기
+                        $(".close").click(
+                            function(){
+                                $(".wgraphic").fadeOut(500,function(){
+                                    $(this).remove();
+                                });
+                            }
+                        );
+                        $(".wgraphic").click(
+                            function(){
+                                $(".wgraphic").fadeOut(500,function(){
+                                    $(this).remove();
+                                });
+                            }
+                        );
+                    }
+                );
+
+                // 스크롤에 따른 화면 변화
+                const options = {
+                root: null, // viewport
+                rootMargin: "0px",
+                threshold: 1.0,  // 50%가 viewport에 들어와 있어야 callback 실행
+                }
+
+                const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    } else {
+                    entry.target.classList.remove('active');
+                    }
+                });
+                }, options);
+
+                const boxList = document.querySelectorAll('.box');
+
+                // 반복문을 돌려 모든 DOM에 적용
+                boxList.forEach(el => observer.observe(el));
+                
+                // aside 클릭
+                $(".ham").click(
+                    function(){
+                        $("div.aside").toggleClass("show");
+                        return false;
+                    }
+                );  
+                // 로고 밤과 낮 모드
+                $(".logo").css({"font-size":"40px","font-wegiht":"bold"});
+                $(".changecolor li:nth-child(1) a").click(
+                    function(){
+                        $("body").css("background-color","white");
+                        $(".gnb li a").css("color","black");
+                        $(".changecolor li a").css("color","black");
+                        $(".logo a").css("color","black");
+                        $(".logo a span:nth-child(n)").css("font-size","40px");
+                        return false;
+                    }
+                );                
+                // 대메뉴 오버
+                // $(".gnb li a").hover(
+                //     function(){
+                //         $(this).addClass("over");
+                //         $(this).parent().siblings().children().removeClass("over");
+                //         // parent()는 앞요소의 부모요소를 가리킴
+                //         // siblings()는 앞요소의 다른형제요소를 가르킴
+                //         // children 앞요소의 자식요소를 가르킴
+                //     }
+                // );
+
+                // 대메뉴의 소메뉴
+                // $(".gnb li a").click(
+                //     function(){
+                //         $(this).siblings("p").slideToggle().toggleClass("smenuText");
+                //         $(this).parent().siblings().children("p").slideUp();                                           
+                //         return false;
+                //     }
+                // );
+            }
+       );
+    </script> 
+</head>
+<body>
+    <!-- 상단영역 -->
+    <header>
+        <div class="wrap">
+            <h1 class="logo"><a href="">LOGO</a></h1>
+            <div class="nav">
+                <ul class="gnb">
+                    <li class="c1">
+                        <a href="">HOME</a>
+                        
+                    </li>
+                    <li class="c2">
+                        <a href="">ABOUT</a>
+                        
+                    </li>
+                    <li class="c3">
+                        <a href="">WORK</a>
+                        
+                    </li>
+                    <li class="c4">
+                        <a href="">WORK SKILL</a>
+                        
+                    </li>
+                    <li class="c5">
+                        <a href="">CONTACT</a>                        
+                    </li>
+                </ul>
+                <ul class="changecolor">
+                    <li><a href="">day</a></li>
+                    <li><a href="">night</a></li>
+                </ul>
+                <div class="aside">
+                    <a href="" class="ham">메뉴보기</a>
+                    <ul>
+                        <li>
+                            <a class="c1p" href="">HOME</a>                            
+                        </li>
+                        <li>
+                            <a class="c2p" href="">ABOUT</a>                            
+                        </li>
+                        <li>
+                            <a class="c3p" href="">WORK</a>
+                        </li>
+                        <li>
+                            <a class="c4p" href="">WORK SKILL</a>
+                        </li>
+                        <li>
+                            <a class="c5p" href="">CONTACT</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- 타이틀영역 -->
+    <div id="title">        
+        <div class="wrap">          
+            <div class="box">
+                <div class="text text1">안</div>
+                <div class="text text2">녕</div>
+                <div class="text text3">하</div>
+                <div class="text text4">세</div>
+                <div class="text text5">요</div>
+            </div>
+            <div class="box">저는...</div>
+            <div class="box">인천에 살고있는</div>
+            <div class="box">27살</div>
+            <div class="box">박도건</div>
+            <div class="box">입니다.</div>
+            <div class="box">지금까지 저는...</div>          
+            
+            <span><a href="" class="scroll"></a></span>
+            <div class="flip_me" data-aos="flip-up" data-aos-duration="500" data-aos-delay="250">
+                <ul class="portani">
+                    <li><div class="slick_in"><img src="https://images.unsplash.com/photo-1664575196079-9ac04582854b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt=""><p>인천 삼산고 졸업</p></div></li>
+                    <li><div class="slick_in"><img src="https://images.unsplash.com/photo-1665686376173-ada7a0031a85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt=""><p>병장 만기제대</p></div></li>
+                    <li><div class="slick_in"><img src="https://images.unsplash.com/photo-1661961111184-11317b40adb2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" alt=""><p>인하공전 졸업</p></div></li>
+                    <li><div class="slick_in"><img src="https://images.unsplash.com/photo-1664575198263-269a022d6e14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt=""><p>정보처리산업기사<br>국비과정 수료</p></div></li>
+                    <li><div class="slick_in"><img src="https://images.unsplash.com/photo-1664574654578-d5a6a4f447bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt=""><p>우체국물류지원단<br> 인천공항국제운송점 <br>근무</p></div></li>
+                    <li><div class="slick_in"><img src="https://images.unsplash.com/photo-1661961112835-ca6f5811d2af?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80" alt=""><p>UI / UX 과정<br> 수료예정</p></div></li>
+                </ul>
+            </div>
+        </div>        
+    </div>
+    <!-- 내용영역 -->
+    <main>       
+        <section id="about">            
+            <div class="aboutHover">
+                    <div class="wrap">
+                        <h2 class="aboutMe" data-aos="fade-right" data-aos-duration="800" data-aos-delay="300">ABOUT</h2>
+                        <div class="sumAbout">
+                            <div class="leftS" data-aos="zoom-in-right" data-aos-duration="1250" data-aos-delay="250">
+                                <div class="slider">
+                                    <input type="radio" name="slide" id="slide1" checked>
+                                    <input type="radio" name="slide" id="slide2">
+                                    <input type="radio" name="slide" id="slide3">
+                                    <input type="radio" name="slide" id="slide4">
+                                    <input type="radio" name="slide" id="slide5">
+                                    <input type="radio" name="slide" id="slide6">
+                                    <input type="radio" name="slide" id="slide7">
+                                    <input type="radio" name="slide" id="slide8">
+                                    <input type="radio" name="slide" id="slide9">
+                                    <ul id="imgholder" class="imgs">
+                                        <li><img src="img/sect02-slide01.png"></li>
+                                        <li><img src="img/sect02-slide02.png"></li>
+                                        <li><img src="img/sect02-slide03.png"></li>
+                                        <li><img src="img/sect02-slide04.png"></li>
+                                        <li><img src="img/sect02-slide05.png"></li>
+                                        <li><img src="img/sect02-slide06.png"></li>
+                                        <li><img src="img/sect02-slide07.png"></li>
+                                        <li><img src="img/sect02-slide08.png"></li>
+                                        <li><img src="img/sect02-slide09.png"></li>
+                                    </ul>
+                                    <div class="bullets">
+                                        <label for="slide1">&nbsp;</label>
+                                        <label for="slide2">&nbsp;</label>
+                                        <label for="slide3">&nbsp;</label>
+                                        <label for="slide4">&nbsp;</label>
+                                        <label for="slide5">&nbsp;</label>
+                                        <label for="slide6">&nbsp;</label>
+                                        <label for="slide7">&nbsp;</label>
+                                        <label for="slide8">&nbsp;</label>
+                                        <label for="slide9">&nbsp;</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rightS">
+                                <hgroup>
+                                    <h1 class="logo" data-aos="fade-left" data-aos-duration="1250" data-aos-delay="300"><a href="">LOGO</a></h1>
+                                    <p class="selfInter" data-aos="fade-left" data-aos-duration="1250" data-aos-delay="400">여러분들이 절 만날 수 있도록</p>
+                                    <h2 data-aos="fade-left" data-aos-duration="1250" data-aos-delay="500">포트폴리오를 준비했습니다.</h2>
+                                    <p data-aos="fade-left" data-aos-duration="800" data-aos-delay="500">안녕하세요. <br>
+                                        <span data-aos="fade-left" data-aos-duration="800" data-aos-delay="450">이번에 UI/UX 국비과정을 듣고있는 학생인 박도건이라고 합니다.</span><br>
+                                        <span data-aos="fade-left" data-aos-duration="800" data-aos-delay="600">약 4개월간 배운 지식들로 작은 포트폴리오를 준비해 보았습니다.</span><br>
+                                        <span data-aos="fade-left" data-aos-duration="800" data-aos-delay="750">비록 많이 부족하고 어설프지만, 이번 기회로 스스로에게</span><br>
+                                        <span data-aos="fade-left" data-aos-duration="800" data-aos-delay="900">비드백으로서 받아들이고 앞으로 전진하도록 노력하겠습니다.</span><br>
+                                        <span data-aos="fade-left" data-aos-duration="800" data-aos-delay="1050">감사합니다.</span></p>                        
+                                </hgroup>
+                                <span class="sImg" data-aos="zoom-in-up" data-aos-duration="800" data-aos-delay="1050"></span>
+                            </div>                            
+                        </div>                        
+                    </div>
+            </div>
+        </section>
+        <!-- work 색션 -->
+        <section id="work">
+            <div class="workHover">
+                <div class="wrap">
+                    <hgroup>
+                    <h2 class="workT" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500">WORK</h2>
+                    <p class="works" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="500">지금까지 걸어온 미래를 향한 도전의 길<span class="block"></span>
+                        한번 만나 주시겠습니까?</p>
+                    </hgroup>
+                    <ul>
+                        <div class="spin" data-aos="flip-left" data-aos-duration="700" data-aos-delay="300">
+                            <li>
+                                <span><a href="https://parkdogeon.github.io/pr-link1/">1개월차 이미지</a></span>
+                                <p class="name">루나브루 수제맥주</p>
+                                <div class="overcontents">
+                                    <h3 class="h3">루나브루 수제맥주</h3>
+                                    <p class="p">
+                                        루나브루 수제맥주 홈페이지를 참조하여 만들었습니다.
+                                        기초적인 효과들 위주의 웹페이지를 만들어 보았습니다.
+                                    </p>
+                                    <span class="inside"><a href="https://parkdogeon.github.io/pr-link1/">1개월차 이미지</a></span>
+                            </li>
+                        </div>
+                        <div class="spin" data-aos="flip-left" data-aos-duration="700" data-aos-delay="500">
+                            <li>
+                                <span><a href="https://parkdogeon.github.io/pr-link2/">2개월차 이미지</a></span>
+                                <p class="name">루나브루 수제맥주 리뉴얼</p>
+                                <div class="overcontents">
+                                    <h3 class="h3">루나브루 수제맥주 리뉴얼</h3>
+                                    <p class="p">
+                                        루나브루 수제맥주를 자신만의 스타일로 한번 리뉴얼 해보았습니다.
+                                        모바일에서 웹페이지에 들어갔때 화면이 제대로 보이도록 리뉴얼 작업을 진행했습니다.
+                                    </p>
+                                    <span class="inside"><a href="https://parkdogeon.github.io/pr-link2/">2개월차 이미지</a></span>
+                            </li>
+                        </div>
+                        <div class="spin" data-aos="flip-left" data-aos-duration="700" data-aos-delay="700">
+                            <li>
+                                <span><a href="https://parkdogeon.github.io/pr-link3/">3개월차 이미지</a></span>
+                                <p class="name">리뉴얼반응형</p>
+                                <div class="overcontents">
+                                    <h3 class="h3">리뉴얼반응형</h3>
+                                    <p class="p">
+                                        루나브루를 바탕으로 한 다른 형태의 리뉴얼반응형으로 만들어 보았습니다.
+                                        오류와 다른 이상한 점들이 있는지 검사를 거친뒤에 웹페이지를 완성했습니다.
+                                    </p>
+                                    <span class="inside"><a href="https://parkdogeon.github.io/pr-link3/">2개월차 이미지</a></span>
+                            </li>
+                        </div>
+                        <div class="spin" data-aos="flip-left" data-aos-duration="700" data-aos-delay="900">
+                            <li>
+                                <span><a href="https://parkdogeon.github.io/pr-link4/">4개월차 이미지</a></span>
+                                <p class="name">현대건설</p>
+                                <div class="overcontents">
+                                    <h3 class="h3">현대건설</h3>
+                                    <p class="p">
+                                        현대건설 홈페이지를 참조하여 만든 홈페이지 입니다.
+                                        애니메이션 효과를 많은 부분에서 다뤘습니다.
+                                    </p>
+                                    <span class="inside"><a href="https://parkdogeon.github.io/pr-link4/">2개월차 이미지</a></span>
+                            </li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- 스킬 섹션 -->
+        <section id="skill">
+            <div class="wrap">
+                <div class="popup">
+                    <h2 data-aos="zoom-in" data-aos-anchor-placement="top-bottom" data-aos-duration="1000" data-aos-delay="250">SKILL</h2>                    
+                </div>
+                <h2 data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">SKILLS</h2>
+                <div class="skillImg">
+                    <figure data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">
+                        <img src="img/skill1.png" alt="">
+                        <figcaption>
+                            <h3>html</h3>
+                            <p>html란 'Hyper Text Markup Language'에 약어이며, HTML을 통해<span class="block"></span>
+                                 웹 페이지를 만들수 있습니다.</p>
+                        </figcaption>
+                    </figure>
+                    <figure data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">
+                        <img src="img/skill2.png" alt="">
+                        <figcaption>
+                            <h3>css</h3>
+                            <p>css란 캐스케이딩 스타일 시트(Cascading Style Sheet) 레이아웃과<span class="block"></span>
+                                 스타일을 정의할 때의 자유도가 높습니다. css를 활용하여<span class="block"></span>
+                                 HTML의 스타일을 꾸며줄 수 있습니다.</p>
+                        </figcaption>
+                    </figure>
+                    <figure data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">
+                        <img src="img/skill3.png" alt="">
+                        <figcaption>
+                            <h3>javascript</h3>
+                            <p>javascript(자바스크립트)는 클라이언트 단에서 웹 페이지가 동작하는 것을<span class="block"></span>
+                                 담당합니다. 자바스크립트를 활용하여 여러 애니메이션의 동작을<span class="block"></span> 
+                                 효과적으로 다룰 수 있습니다.</p>
+                        </figcaption>
+                    </figure>
+                    <figure data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">
+                        <img src="img/skill4.png" alt="">
+                        <figcaption>
+                            <h3>jquery</h3>
+                            <p>제이쿼리는 자바스크립트 언어를 간편하게 사용할 수 있도록 단순화시킨 오픈 소스<span class="block"></span>
+                                 기반의 자바스크립트 라이브러리입니다. 제이쿼리를 사용하여 자바스크립트를<span class="block"></span>
+                                 좀 더 간편하고 쉽게 사용할 수 있습니다.</p>
+                        </figcaption>
+                    </figure>
+                    <figure data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">
+                        <img src="img/skill5.png" alt="">
+                        <figcaption>
+                            <h3>sass</h3>
+                            <p>CSS의 단점을 보완하기 위해 만든 CSS 전처리기입니다.<span class="block"></span> 
+                                보통 CSS를 사용하다보면 단순 반복되는 부분이 많은 등, 불편함이 느껴지기 마련인데,<span class="block"></span> 
+                                SASS는 이 부분을 거의 완전히 해소시켜주는 스타일시트 언어입니다.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+                <h2 data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">TOOLS</h2>
+                <div class="toolImg">
+                    <figure data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">
+                        <img src="img/tool1.png" alt="">
+                        <figcaption>
+                            <h3>photoshop</h3>
+                            <p>어도비 포토샵은 미국의 어도비 시스템즈사에서 개발한 레스터 그래픽 편집기입니다.<span class="block"></span> 
+                                포토샵을 이용하여 이미지의 간단한 제작 및 수정과 그걸 활용하여 웹페이지에 <span class="block"></span>
+                                적용할 수 있습니다.
+                            </p>
+                        </figcaption>
+                    </figure>
+                    <figure data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">
+                        <img src="img/tool2.png" alt="">
+                        <figcaption>
+                            <h3>Adobe Illustrator</h3>
+                            <p>어도비 일러스트레이터(Adobe Illustrator)는 어도비 시스템즈사에서<span class="block"></span> 
+                                개발한 벡터 드로잉 프로그램입니다. 어도비 일러스트레이터를 활용하여 간단한 일러스트<span class="block"></span>
+                                제작을 할 수 있습니다.
+                            </p>
+                        </figcaption>
+                    </figure>
+                    <figure data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">
+                        <img src="img/tool3.png" alt="">
+                        <figcaption>
+                            <h3>Visual Studio Code</h3>
+                            <p>비주얼 스튜디오 코드(Visual Studio Code) 또는 코드는 마이크로소프트가<span class="block"></span>  
+                               마이크로소프트 윈도우, macOS, 리눅스용으로 개발한 소스 코드 편집기입니다.<span class="block"></span> 
+                               비주얼 스튜디오 코드 이용하여 html, css, js, jquery를 이용할 때 편하게 사용할 수 있습니다. 
+                            </p>
+                        </figcaption>
+                    </figure>
+                    <figure data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">
+                        <img src="img/tool4.png" alt="">
+                        <figcaption>
+                            <h3>kakao oven</h3>
+                            <p>카카오오븐은 카카오에서 제공하는 프로토타이핑 툴입니다.<span class="block"></span>
+                                오븐을 통해 미리 준비하고 계획하며 그 정보들을 이미지화 하여 설계할 수 있습니다.
+                            </p>
+                        </figcaption>
+                    </figure>
+                    <figure data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">
+                        <img src="img/tool5.png" alt="">
+                        <figcaption>
+                            <h3>google drive</h3>
+                            <p>구글 드라이브는 구글에서 제공하는 클라우드 기반 협업도구이자 파일저장/공유 서비스입니다.<span class="block"></span>
+                                구글 드라이브를 활용하여 여러 정보 및 파일들을 저장하고 공유하며 정리를 할 수 있습니다.
+                            </p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- 하단영역 -->
+    <footer>        
+        <div class="wrap" id="footerIn">
+            <h1 class="logo"><a href="">LOGO</a></h1>
+            <hgroup>
+                <p><strong>주소 :</strong>인천시 부평구 xxx</p>
+                <p><strong>연락처 :</strong>010-xxxx-xxxx</p>
+                <p><strong>이메일 :</strong>bdg3126@naver.com</p>
+            </hgroup>
+            <span class="linkF">
+                <a href="">.1</a>
+                <a href="">.2</a>
+                <a href="">.3</a>
+            </span>
+        </div>
+        <a class="upScroll" href="">upScroll</a>
+    </footer>
+</body>
+</html>

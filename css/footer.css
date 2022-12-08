@@ -1,0 +1,80 @@
+footer {
+    
+  margin-top: 200px;
+  background-color: darkgray;
+  font-family: Pretendard;
+  }
+  footer .wrap {
+    
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  }
+  footer .wrap h1 {
+    
+  }
+  footer .wrap h1 a {
+    
+  line-height: 2;
+  }
+  footer .wrap hgroup {
+    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.5;
+  margin: 20px 0;
+  }
+  footer .wrap hgroup p {
+    
+  }
+  footer .wrap hgroup p strong {
+    
+  font-size: 18px;
+  font-weight: bold;
+  }
+  footer .wrap span {    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  footer .wrap span a {    
+  width: 50px;
+  height: 50px;
+  margin: 20px;
+  color: transparent;
+  }
+footer .wrap span a:nth-child(1){
+  background-image:url(../img/google.svg); 
+}
+footer .wrap span a:nth-child(2){
+  background-image:url(../img/youTube.svg); 
+  background-size: cover;
+}
+footer .wrap span a:nth-child(3){
+  background-image:url(../img/facebook.svg);
+  background-size: cover;
+}
+  .upScroll{    
+  position: fixed;
+  top: 60%;
+  right: 90px;
+  width: 50px;
+  height: 50px;
+  border: 2px solid transparent;
+  color: transparent;
+  background-image: url(../img/upArrow.svg);
+  background-position: center;
+  background-size: contain;
+  border-radius: 50%;    
+
+  }
+
+.upScroll:hover{
+  border-color: black;
+  animation-name: updown !important;
+  animation-duration: 2s !important;
+  animation-iteration-count: infinite !important;
+  animation-timing-function: ease-in-out !important;
+}
