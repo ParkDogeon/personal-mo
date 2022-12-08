@@ -553,12 +553,16 @@ section{
 #contact .wrap{
   
 }
-#contact .wrap h2{
-  
+#contact .wrap .padlet_main{
+  height: auto;
+} 
+#contact .wrap .padlet_sub{
+  font-size: 30px;
+  margin: 50px 0;
 }
 #contact .wrap .padlet-embed{
   
 }
 #contact .wrap p{
-  
+   font-size: 30px;
 }
