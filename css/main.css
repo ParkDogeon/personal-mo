@@ -6,7 +6,6 @@ section{
     box-sizing: border-box;
     height: 100%;
 }
-
 .block{
   display: block;
 }
@@ -531,7 +530,7 @@ section{
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 60px;
+    bottom: 70px;
     z-index: 2;
   }
   .bullets label {
@@ -814,10 +813,14 @@ section{
   line-height: 3;
   color: white;
 }
-#location .wrap .right p{
-  
+#location .wrap .right p{  
   line-height: 2;
   color: #242424;
+  font-size: 22px;
+}
+#location .wrap .right p strong{
+  font-weight: bold;
+  font-size: 24px;
 }
 #location .wrap .right a{
   margin-top: 80px;
@@ -838,6 +841,10 @@ section{
 #location .wrap .right a:hover{
   background-color: #242424;
   color: white;
+}
+#location .wrap .right a:hover ::after{
+  border-color: white;
+  
 }
 #location .wrap .right a::after{
   content: "";

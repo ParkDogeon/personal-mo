@@ -121,7 +121,7 @@
                 // aos 시작선언
                 AOS.init();
                 // 대메뉴 창 클릭시 해당 페이지 이동
-                var c1=$("#title").offset().top;
+                var c1=$("#head").offset().top;
                 var c2=$("#about").offset().top;
                 var c3=$("#work").offset().top;
                 var c4=$("#skill").offset().top;
@@ -287,7 +287,7 @@
 </head>
 <body>
     <!-- 상단영역 -->
-    <header>
+    <header id="head">
         <div class="wrap">
             <h1 class="logo"><a href="">LOGO</a></h1>
             <div class="nav">
@@ -341,29 +341,39 @@
     </header>
     <!-- 타이틀영역 -->
     <!-- <main> -->
-    <div id="title">        
-        <div class="wrap">          
-            <div class="box">
-                <div class="text text1">안</div>
-                <div class="text text2">녕</div>
-                <div class="text text3">하</div>
-                <div class="text text4">세</div>
-                <div class="text text5">요</div>
-            </div>
-            <div class="box">저는...</div>
-            <div class="box">인천에 살고있는</div>
-            <div class="box">27살</div>
-            <div class="box">박도건</div>
-            <div class="box">입니다.</div>
-            <div class="box">지금까지 저는...</div>          
+    <section id="title_section">
+        <div id="title">        
+            <div class="wrap">          
+                <div class="box">
+                    <div class="text text1">안</div>
+                    <div class="text text2">녕</div>
+                    <div class="text text3">하</div>
+                    <div class="text text4">세</div>
+                    <div class="text text5">요</div>
+                </div>
+                <div class="box">저는 인천에 살고있는</div>
+                <div class="box">박도건 입니다.</div>
+                <div class="box">제 소개를 시작하겠습니다.</div>
+                <span><a href="" class="scroll"></a></span>
+            </div>        
+        </div>
+    </section>
+    <!-- 비어있는 섹션(이유는 타이틀 영역에 애니메이션 효과를 위해) -->
+    <section id="none1">
+        <div class="wrap">
             
-            <span><a href="" class="scroll"></a></span>            
-                        
-        </div>        
-    </div>
+        </div>
+    </section>
+    
+    <section id="none2" class="wheel"> 
+        <div class="wrap">
+            
+        </div>
+    </section>
+       
         <!-- 내용영역 -->    
         <!-- about 색션 소개 -->
-        <section id="about_Sub">
+        <section id="about_Sub" class="wheel">
             <div class="wrap">
                 <hgroup>
                     <h2 class="bigFonts" data-aos="fade-right" data-aos-duration="1150" data-aos-delay="400">Introduction to</h2>
@@ -540,7 +550,7 @@
         <!-- contact 색션 -->
         <section id="contact" class="wheel">
             <div class="wrap">
-                <h2 class="padlet_sub">feedback</h2>
+                <h2 class="padlet_sub">Feedback</h2>
                 <div class="padlet_main">
                     <div class="padlet-embed" style="border:1px solid rgba(0,0,0,0.1);border-radius:2px;box-sizing:border-box;overflow:hidden;position:relative;width:100%;background:#F4F4F4"><p style="padding:0;margin:0"><iframe src="https://padlet.com/embed/kwgvjbr580rw974e" frameborder="0" allow="camera;microphone;geolocation" style="width:100%;height:608px;display:block;padding:0;margin:0"></iframe></p><div style="display:flex;align-items:center;justify-content:end;margin:0;height:28px"><a href="https://padlet.com?ref=embed" style="display:block;flex-grow:0;margin:0;border:none;padding:0;text-decoration:none" target="_blank"><div style="display:flex;align-items:center;"><img src="https://padlet.net/embeds/made_with_padlet_2022.png" width="114" height="28" style="padding:0;margin:0;background:0 0;border:none;box-shadow:none" alt="Padlet으로 만듦"></div></a></div></div> 
                 </div>
@@ -665,12 +675,12 @@
         <!-- 오시는 길 색션 -->
         <section id="location">
             <div class="wrap">
-                <h2 class="skill_x" data-aos="zoom-in" data-aos-anchor-placement="top-bottom" data-aos-duration="1000" data-aos-delay="250">오시는 길</h2>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.6659829513974!2d126.7218747155674!3d37.4922078361386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b7bdc1b2de517%3A0xbf7908030134f350!2zU0JT7JWE7Lm0642w66-47Lu07ZOo7YSw7JWE7Yq47ZWZ7JuQIOu2gO2PieygkA!5e0!3m2!1sko!2skr!4v1670822151568!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <h2 class="skill_x" data-aos="zoom-in" data-aos-anchor-placement="top-bottom" data-aos-duration="1000" data-aos-delay="250">come to me</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.6659829513974!2d126.7218747155674!3d37.4922078361386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357b7bdc1b2de517%3A0xbf7908030134f350!2zU0JT7JWE7Lm0642w66-47Lu07ZOo7YSw7JWE7Yq47ZWZ7JuQIOu2gO2PieygkA!5e0!3m2!1sko!2skr!4v1670822151568!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" data-aos="zoom-in-right" data-aos-duration="1250" data-aos-delay="250"></iframe>
                 <div class="right">                    
-                    <p>주소 : 인천광역시 부평구 부평동 194-23</p>
-                    <p>시간 : 09:00~14:00 (주말, 공휴일 휴무)</p>
-                    <a href="https://www.google.com/maps?ll=37.492204,126.724063&z=15&t=m&hl=ko&gl=KR&mapclient=embed&cid=13797067742424396624">지도에서 보기</a>
+                    <p data-aos="fade-right" data-aos-duration="700" data-aos-delay="400"><strong>주소</strong> : 인천광역시 부평구 부평동 194-23</p>
+                    <p data-aos="fade-right" data-aos-duration="700" data-aos-delay="400"><strong>시간</strong> : 09:00~14:00 (주말, 공휴일 휴무)</p>
+                    <a href="https://www.google.com/maps?ll=37.492204,126.724063&z=15&t=m&hl=ko&gl=KR&mapclient=embed&cid=13797067742424396624" data-aos="fade-right" data-aos-duration="1150" data-aos-delay="400">지도에서 보기</a>
                 </div>
             </div>
         </section>

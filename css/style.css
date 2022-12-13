@@ -10,7 +10,7 @@ body{
     position: fixed;
     right: -220px;
     top: 50%;
-    padding: 10px;
+    padding: 2px;
     box-sizing: border-box;
     transition: all 1s;
     z-index: 30;
@@ -31,6 +31,10 @@ body{
     box-sizing: border-box;
     top: 0;
   } 
+.ham:hover{
+  color: white;
+  background-color: #242424;
+}
   .show{
     right: 0 !important;
   }
@@ -78,6 +82,10 @@ header .wrap h1{
 .aside ul li a{
 
 }
+.aside ul li a:hover{
+  color: white;
+  background-color: #242424;
+}
 .wrap .nav{
 
   display: flex;
@@ -95,8 +103,8 @@ header .gnb{
 header .gnb li{
   
 }
-header .gnb li a{
-  
+header .gnb li a{  
+  font-size: 20px;
 }
 header .gnb li a:hover{
   color: #ccc;  
