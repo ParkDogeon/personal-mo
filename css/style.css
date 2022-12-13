@@ -98,6 +98,9 @@ header .gnb li{
 header .gnb li a{
   
 }
+header .gnb li a:hover{
+  color: #ccc;  
+}
 header .gnb li p{
   display: none;
 }

@@ -57,6 +57,7 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    border: 2px solid;
 }
 .slick-track:before,
 .slick-track:after
@@ -172,7 +173,7 @@
 /* 	perspective: 200px; */
 }
 .slick-track li{
-	padding: 20px 30px;
+	padding: 45px 20px;
 	box-sizing: border-box;	
 	transform: perspective(200px) scale(0.5) rotateY(-10deg);
 }
